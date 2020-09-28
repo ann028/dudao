@@ -1,0 +1,23 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "495783",
+      "name": "项目",
+      "font_class": "02",
+      "unicode": "e64a",
+      "unicode_decimal": 58954
+    },
+    {
+      "icon_id": "15355879",
+      "name": "通知公告查询",
+      "font_class": "tongzhigonggaochaxun",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    }
+  ]
+}
