@@ -1,5 +1,5 @@
 <template>
   <div class="about">
-    <span>This is an about page</span>
+    <span>公告查询</span>
   </div>
 </template>

@@ -46,11 +46,11 @@ export default {
           pathName: 'project',
           icon: 'icon-02',
         },
-        // {
-        //   name: '公告查询',
-        //   pathName: 'about',
-        //   icon: 'icon-tongzhigonggaochaxun',
-        // },
+        {
+          name: '公告查询',
+          pathName: 'about',
+          icon: 'icon-tongzhigonggaochaxun',
+        },
         // {
         //   name: '业务通知',
         //   pathName: 'notice',

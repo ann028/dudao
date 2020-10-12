@@ -14,6 +14,12 @@ body,ul,li{
 #app {
   // margin: 0;
   // padding: 0;
+  // .el-input .el-input__suffix,.el-input__inner{
+  //   height: 30px !important;
+  // }
+  // .el-input__icon{
+  //   line-height: 30px !important;
+  // }
 }
 
 #nav {
