@@ -148,10 +148,9 @@
     <el-dialog
       :title="dialogTitle"
       :visible.sync="dialogVisible"
-      width="600px"
-      :before-close="handleClose">
+      width="600px">
       <div>
-        <el-tabs v-model="activeName" @tab-click="handleClick">
+        <el-tabs v-model="activeName">
           <el-tab-pane label="基本信息" name="first">
             <Basic></Basic>
           </el-tab-pane>
@@ -175,9 +174,9 @@ import PersonSetting from '@/components/Projects/PersonSetting.vue'
 
 export default {
   components: {
-    'Step': Step,
-    'Basic': Basic,
-    'PersonSetting': PersonSetting
+    Step,
+    Basic,
+    PersonSetting,
   },
   data() {
     return {
@@ -192,7 +191,7 @@ export default {
         type: '',
       },
       typeOptions: [],
-      tableData:[
+      tableData: [
         {
           id: '12987122',
           name: '好滋好味鸡蛋仔',
@@ -200,7 +199,7 @@ export default {
           desc: '荷兰优质淡奶，奶香浓而不腻',
           address: '上海市普陀区真北路',
           shop: '王小虎夫妻店',
-          shopId: '10333'
+          shopId: '10333',
         }, {
           id: '12987123',
           name: '好滋好味鸡蛋仔',
@@ -208,7 +207,7 @@ export default {
           desc: '荷兰优质淡奶，奶香浓而不腻',
           address: '上海市普陀区真北路',
           shop: '王小虎夫妻店',
-          shopId: '10333'
+          shopId: '10333',
         }, {
           id: '12987125',
           name: '好滋好味鸡蛋仔',
@@ -216,7 +215,7 @@ export default {
           desc: '荷兰优质淡奶，奶香浓而不腻',
           address: '上海市普陀区真北路',
           shop: '王小虎夫妻店',
-          shopId: '10333'
+          shopId: '10333',
         }, {
           id: '12987126',
           name: '好滋好味鸡蛋仔',
@@ -224,28 +223,33 @@ export default {
           desc: '荷兰优质淡奶，奶香浓而不腻',
           address: '上海市普陀区真北路',
           shop: '王小虎夫妻店',
-          shopId: '10333'
+          shopId: '10333',
         },
       ],
       expands: [],
       dialogVisible: false,
       dialogTitle: '新增',
       activeName: 'first',
+      pageJson: {
+        pageSize: 10,
+        currentPage: 1,
+        total: 0,
+      },
     }
   },
   methods: {
-    qrcode () {
+    qrcode() {
       // document.getElementById("qrcode").innerHTML = "";
       // setTimeout(() => {
-      // new QRCode(this.$refs.qrcode, {
-      //   text: 'http://wxshop.carmanclub.com.cn/web/drawPrize/index.html?key_code=' + 123456789,
-      //   // text: 'https://www.baidu.com',
-      //   width: 200,
-      //   height: 200,
-      //   colorDark: "#333333", //二维码颜色
-      //   colorLight: "#ffffff", //二维码背景色
-      //   correctLevel: QRCode.CorrectLevel.L//容错率，L/M/H
-      // })
+      //   new QRCode(this.$refs.qrcode, {
+      //     text: 'http://wxshop.carmanclub.com.cn/web/drawPrize/index.html?key_code=' + 123456789,
+      //     // text: 'https://www.baidu.com',
+      //     width: 200,
+      //     height: 200,
+      //     colorDark: "#333333", // 二维码颜色
+      //     colorLight: "#ffffff", // 二维码背景色
+      //     correctLevel: QRCode.CorrectLevel.L, // 容错率，L/M/H
+      //   })
       // }, 100)
     },
     expandRow(row) {
@@ -257,8 +261,8 @@ export default {
       }
     },
     projectType(type) {
-      switch(type) {
-        case 'add': 
+      switch (type) {
+        case 'add':
           this.dialogVisible = true
           this.dialogTitle = '新增'
           break;
@@ -271,11 +275,16 @@ export default {
           this.dialogTitle = '详情'
       }
 
-    }
+    },
+    indexMethods(index) {
+      console.log('index', index)
+      console.log('======', this.pageJson.pageSize , this.pageJson.currentPage)
+      return this.pageJson.pageSize * (this.pageJson.currentPage - 1) + index + 1
+    },
   },
   mounted() {
     this.qrcode()
-  }
+  },
 }
 </script>
 <style lang="less" scoped>
@@ -291,7 +300,7 @@ export default {
   margin-bottom: 0;
   width: 50%;
 }
-/deep/ .el-table__expand-icon{
+/deep/ .el-table__expand-icon {
   visibility: hidden;
 }
 </style>

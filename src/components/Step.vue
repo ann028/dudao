@@ -5,18 +5,11 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  props: {
-    stepName: {
-      type: Array,
-    }
-  },
-  data() {
-    return {
-
-    }
-  }
+<script lang="ts">
+import {Vue, Component, Prop} from 'vue-property-decorator'
+@Component
+export default class Step extends Vue {
+  @Prop() public readonly stepName!: any[]
 }
 </script>
 <style lang="less" scoped>

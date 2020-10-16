@@ -3,12 +3,8 @@
     通知公告
   </div>
 </template>
-<script>
-export default {
-  data() {
-    return {
-
-    }
-  }
-}
+<script lang="ts">
+import {Vue, Component} from 'vue-property-decorator'
+@Component
+export default class WorkNotice extends Vue {}
 </script>

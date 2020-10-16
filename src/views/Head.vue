@@ -31,8 +31,8 @@ export default {
   methods: {
     doAdd() {
       // console.log(this.$route)
-    }
-  }
+    },
+  },
 }
 </script>
 <style lang="less">

@@ -35,60 +35,50 @@
     </aside>
   </div>
 </template>
-<script>
-// import router from '../router';
-export default {
-  data() {
-    return {
-      menuList: [
-        {
-          name: '项目管理',
-          pathName: 'project',
-          icon: 'icon-02',
-        },
-        {
-          name: '公告查询',
-          pathName: 'about',
-          icon: 'icon-tongzhigonggaochaxun',
-        },
-        // {
-        //   name: '业务通知',
-        //   pathName: 'notice',
-        //   icon: 'icon-02',
-        // },
-        // {
-        //   name: '重大事项',
-        //   pathName: 'matter',
-        //   icon: 'icon-02',
-        // },
-        // {
-        //   name: '考核管理',
-        //   pathName: 'examine',
-        //   icon: 'icon-02',
-        // },
-      ],
-    }
-  },
-  created() {
-    console.log(1111111)
-    // this.defaultMenu = this.menuList.length ? this.menuList
-  },
-  computed: {
-    defaultMenu() {
-      console.log(this.$route.matched)
-      if (this.$route.matched && this.$route.matched.length > 2) {
-        return this.$route.matched[1].name;
-      } else {
-        return this.$route.name;
-      }
-    }
-  },
-  methods: {
-    toLink(name) {
-      console.log(name)
-      this.$router.push({name})
+<script lang="ts">
+import {Vue, Component} from 'vue-property-decorator'
+@Component
+export default class Aside extends Vue {
+  private menuList: any[] = [
+    {
+      name: '项目管理',
+      pathName: 'project',
+      icon: 'icon-02',
+    },
+    {
+      name: '公告查询',
+      pathName: 'about',
+      icon: 'icon-tongzhigonggaochaxun',
+    },
+    // {
+    //   name: '业务通知',
+    //   pathName: 'notice',
+    //   icon: 'icon-02',
+    // },
+    // {
+    //   name: '重大事项',
+    //   pathName: 'matter',
+    //   icon: 'icon-02',
+    // },
+    // {
+    //   name: '考核管理',
+    //   pathName: 'examine',
+    //   icon: 'icon-02',
+    // },
+  ]
+  get defaultMenu() {
+    console.log(this.$route.matched)
+    if (this.$route.matched && this.$route.matched.length > 2) {
+      return this.$route.matched[1].name;
+    } else {
+      return this.$route.name;
     }
   }
+  private toLink(name: any) {
+    console.log(name)
+    this.$router.push({name})
+  }
+
 }
 </script>
 <style lang="less" scoped>

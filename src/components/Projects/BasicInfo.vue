@@ -3,17 +3,14 @@
     <el-form :model="ruleForm" :rules="rules" ref="ruleForm" :label-position="right" label-width="100px" class="demo-ruleForm" >
       <section class="flex">
         <el-form-item label="证券代码" prop="code" class="tag">
-          <span class="viewInfoStyle" v-if="viewProjectInfo">{{ruleForm.code}}</span>
-          <el-input v-else v-model="ruleForm.code" maxlength="30" class="input_width1"></el-input>
+          <el-input  v-model="ruleForm.code" maxlength="30" class="input_width1"></el-input>
         </el-form-item>
         <el-form-item label="证券简称" prop="name" class="tag">
-          <span class="viewInfoStyle" v-if="viewProjectInfo">{{ruleForm.name}}</span>
-          <el-input v-else v-model="ruleForm.name" maxlength="120" class="input_width1" :disabled="viewProjectInfo ? true :  false"></el-input>
+          <el-input v-model="ruleForm.name" maxlength="120" class="input_width1" :disabled="viewProjectInfo ? true :  false"></el-input>
         </el-form-item>
       </section>
       <section class="flex">
         <el-form-item label="项目类型" prop="type" class="tag">
-          <span class="viewInfoStyle" v-if="viewProjectInfo">{{ruleForm.type}}</span>
           <el-select v-model="ruleForm.type" placeholder="请选择">
             <el-option
               v-for="item in options"
@@ -24,13 +21,11 @@
           </el-select>
         </el-form-item>
         <el-form-item label="业务部门" prop="department" class="tag">
-          <span class="viewInfoStyle" v-if="viewProjectInfo">{{ruleForm.department}}</span>
-          <el-input v-else v-model="ruleForm.department" maxlength="120" class="input_width1" :disabled="viewProjectInfo ? true :  false"></el-input>
+          <el-input v-model="ruleForm.department" maxlength="120" class="input_width1" :disabled="viewProjectInfo ? true :  false"></el-input>
         </el-form-item>
       </section>
       <section class="flex">
         <el-form-item label="督导时间" prop="time2" class="tag">
-          <span class="viewInfoStyle" v-if="viewProjectInfo">{{ruleForm.time1}}</span>
           <div class="flex">
             <el-date-picker
               v-model="ruleForm.time1"
@@ -52,7 +47,6 @@
       </section>
       <section>
         <el-form-item label="板块" prop="plate" class="tag">
-          <span class="viewInfoStyle" v-if="viewProjectInfo">{{ruleForm.plate}}</span>
           <el-select v-model="ruleForm.plate" placeholder="请选择">
             <el-option
               v-for="item in options"
@@ -100,9 +94,9 @@ export default {
         plate: [
           { required: true, message: '请填写板块', trigger: 'change'},
         ],
-      }
+      },
     }
-  }
+  },
 }
 </script>
 <style lang="less" scoped>
